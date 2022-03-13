@@ -6,6 +6,9 @@ public class Collision : MonoBehaviour
 {
     public int wheelIndex;
     public Transform wheelPrefab;
+    public ParticleSystem pufSmoke;
+   // public ParticleSystem obstacleSmoke;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +23,8 @@ public class Collision : MonoBehaviour
                 other.gameObject.AddComponent<Rigidbody>();
                 Rigidbody rigid = other.gameObject.GetComponent<Rigidbody>();
                 rigid.constraints = RigidbodyConstraints.FreezeRotation;
-
+                other.gameObject.layer = LayerMask.NameToLayer("Wheel");//dont collide with each other
+                pufSmoke.Play();
 
                 WheelList.instance.StackWheel(other.gameObject, WheelList.instance.wheels.Count - 1);
             }
@@ -35,10 +39,10 @@ public class Collision : MonoBehaviour
 
         if (other.gameObject.tag == "Obstacle")
         {
-            
             //When hit the obstacle we collecting index count
             for (int i = 0; i < WheelList.instance.wheels.Count; i++)
             {
+
                 if (gameObject == WheelList.instance.wheels[i])
                 {
                     wheelIndex = i;
@@ -55,10 +59,14 @@ public class Collision : MonoBehaviour
                     WheelList.instance.wheels.Remove(wheel);
                     Destroy(wheel);
                     //instantiate prefab
-                    Instantiate(wheelPrefab,transform.position,transform.rotation);           
+                    //Instantiate(wheelPrefab, transform.position, transform.rotation)
+                    Instantiate(wheelPrefab,new Vector3(transform.position.x, transform.position.y +  0.1f, transform.position.z), transform.rotation); //get high instantiate
+                    
                 }
-
+                //obstacleSmoke.Play();
             }
+
+
         }
     }
 

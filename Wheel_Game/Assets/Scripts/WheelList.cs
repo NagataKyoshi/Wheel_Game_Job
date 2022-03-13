@@ -48,7 +48,7 @@ public class WheelList : MonoBehaviour
             Vector3 scale = new Vector3(10, 10, 10);
             scale *= 1.5f;
             wheels[index].transform.DOScale(scale, 0.1f).OnComplete(() =>
-            wheels[index].transform.DOScale(new Vector3(10, 10,10), 0.1f)
+            wheels[index].transform.DOScale(new Vector3(10, 10, 10), 0.1f)
             );
             yield return new WaitForSeconds(0.05f);
         }
