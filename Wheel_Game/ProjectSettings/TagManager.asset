@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wheel
   - Bricks
+  - Obstacle
   layers:
   - Default
   - TransparentFX

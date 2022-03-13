@@ -39,6 +39,7 @@ public class WheelList : MonoBehaviour
     }
 
     //When player get wheel last index to first index our wheels get bigger and smaller
+    //When player hit obstacles that gives an scale error because of tires deleted.
     public IEnumerator MakeObjectsBigger()
     {
         for (int i = wheels.Count - 1; i > 0; i--)
@@ -59,7 +60,7 @@ public class WheelList : MonoBehaviour
         {
             Vector3 pos = wheels[i].transform.localPosition;
             pos.x = Mathf.Lerp(wheels[i].transform.localPosition.x, wheels[i - 1].transform.localPosition.x, Time.deltaTime * movementDelay);
-            pos.z = wheels[i - 1].transform.localPosition.z + 0.4f;
+            pos.z = wheels[i - 1].transform.localPosition.z + 0.3f;
                      
             wheels[i].transform.localPosition = pos;
         }
@@ -71,8 +72,10 @@ public class WheelList : MonoBehaviour
         {
             Vector3 pos = wheels[i].transform.localPosition;
             pos.x = Mathf.Lerp(wheels[i].transform.localPosition.x, wheels[0].transform.localPosition.x, Time.deltaTime * movementDelay);
+            pos.z = wheels[i - 1].transform.localPosition.z + 0.3f;
             wheels[i].transform.localPosition = pos;
 
         }
     }
+
 }
