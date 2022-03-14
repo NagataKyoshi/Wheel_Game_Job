@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public enum PlayerState
     {
         Prepare,
-        Playing
+        Playing,
+        Finish
     }
 
     public PlayerState playerState;

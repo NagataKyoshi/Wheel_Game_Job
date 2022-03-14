@@ -7,7 +7,7 @@ public class Collision : MonoBehaviour
     public int wheelIndex;
     public Transform wheelPrefab;
     public ParticleSystem pufSmoke;
-   // public ParticleSystem obstacleSmoke;
+    public int wheelCount;
 
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +24,7 @@ public class Collision : MonoBehaviour
                 Rigidbody rigid = other.gameObject.GetComponent<Rigidbody>();
                 rigid.constraints = RigidbodyConstraints.FreezeRotation;
                 other.gameObject.layer = LayerMask.NameToLayer("Wheel");//dont collide with each other
+                other.gameObject.GetComponent<Animator>().enabled = true;
                 pufSmoke.Play();
 
                 WheelList.instance.StackWheel(other.gameObject, WheelList.instance.wheels.Count - 1);
@@ -35,6 +36,29 @@ public class Collision : MonoBehaviour
             other.GetComponent<Rigidbody>().isKinematic = false;
             other.GetComponent<BoxCollider>().isTrigger = false;
             Destroy(other.gameObject, 2); //better for optimization
+        }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            for (int i = 0; i < WheelList.instance.wheels.Count; i++)
+            {
+                if (gameObject == WheelList.instance.wheels[i])
+                {
+                    wheelCount = i;
+                    break;
+                }
+            }
+
+            for (int i = wheelCount; i < WheelList.instance.wheels.Count - 1 ; i++)
+            {
+                GameObject wheels = WheelList.instance.wheels[i];
+                WheelList.instance.wheels.Remove(wheels);
+                Destroy(wheels, 0.2f);
+                WheelList.instance.wheels[i].gameObject.transform.localScale += Vector3.one * 2;
+            }
+
+            //this.gameObject.GetComponentInParent<Animator>().enabled = false;
+            //GameManager.inst.playerState = GameManager.PlayerState.Finish;
         }
 
         if (other.gameObject.tag == "Obstacle")
@@ -60,13 +84,10 @@ public class Collision : MonoBehaviour
                     Destroy(wheel);
                     //instantiate prefab
                     //Instantiate(wheelPrefab, transform.position, transform.rotation)
-                    Instantiate(wheelPrefab,new Vector3(transform.position.x, transform.position.y +  0.1f, transform.position.z), transform.rotation); //get high instantiate
-                    
+                    Instantiate(wheelPrefab, new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.rotation); //get high instantiate
+
                 }
-                //obstacleSmoke.Play();
             }
-
-
         }
     }
 
