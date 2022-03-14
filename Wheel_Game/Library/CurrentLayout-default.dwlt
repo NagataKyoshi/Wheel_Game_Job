@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 878, y: 492}
   m_MaxSize: {x: 16003, y: 14042}
   vertical: 0
-  controlID: 137
+  controlID: 54
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 552
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -250,10 +250,10 @@ MonoBehaviour:
     y: 0
     width: 1368
     height: 947
-  m_MinSize: {x: 603, y: 492}
-  m_MaxSize: {x: 12003, y: 14042}
+  m_MinSize: {x: 602, y: 492}
+  m_MaxSize: {x: 12002, y: 14042}
   vertical: 1
-  controlID: 47
+  controlID: 84
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,10 +276,10 @@ MonoBehaviour:
     y: 0
     width: 1368
     height: 560
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 602, y: 221}
+  m_MaxSize: {x: 12002, y: 4021}
   vertical: 0
-  controlID: 48
+  controlID: 85
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -299,8 +299,8 @@ MonoBehaviour:
     y: 0
     width: 514
     height: 560
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -405,22 +405,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game/Art/Wheels/Prefabs/Rim_07
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game/Art/Wheels/Prefabs/Rim_07
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\serka\Documents\GitHub\Wheel_Game_Job\Wheel_Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 6}
-    m_SelectedIDs: 386b0000
-    m_LastClickedID: 27448
-    m_ExpandedIDs: 000000001e68000020680000226800002468000026680000286800002a6800002c6800006468000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 00690000
+    m_LastClickedID: 26880
+    m_ExpandedIDs: 000000009a6800009c6800009e680000a0680000a2680000a4680000a668000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -448,7 +448,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e68000020680000226800002468000026680000286800002a6800002c680000
+    m_ExpandedIDs: 000000009a6800009c6800009e680000a0680000a2680000a4680000a6680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -568,24 +568,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 26}
-      m_SelectedIDs: 6c560000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 04fbffff50fbffff46490000c44b0000f04b0000704c0000984d0000ca4d0000404e0000365000004e5000007e500000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 08fbffff
+      m_LastClickedID: -1272
+      m_ExpandedIDs: 9272ffff70ecffff06fbffff50fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Flat
+        m_OriginalName: Flat
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -5008
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -631,9 +631,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.12117362, y: 0.45880675, z: -8.297825}
+    m_Target: {x: 0.44416928, y: 1.7258706, z: -9.032414}
     speed: 2
-    m_Value: {x: 0.12117362, y: 0.45880675, z: -8.297825}
+    m_Value: {x: 0.3863412, y: 1.7514656, z: -9.044725}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -680,13 +680,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.32785097, y: 0.5304262, z: -0.23306555, w: 0.7461377}
+    m_Target: {x: 0.21712993, y: -0.030740784, z: 0.0068409075, w: 0.975553}
     speed: 2
-    m_Value: {x: 0.32787076, y: 0.5304582, z: -0.23307961, w: 0.74618274}
+    m_Value: {x: 0.21861042, y: -0.030732939, z: 0.006887545, w: 0.9753038}
   m_Size:
-    m_Target: 2.5335538
+    m_Target: 0.75570005
     speed: 2
-    m_Value: 2.5335538
+    m_Value: 0.75570023
   m_Ortho:
     m_Target: 0
     speed: 2

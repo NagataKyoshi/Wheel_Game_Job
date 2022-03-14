@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject startScreen;
+    public static GameManager inst;
     public enum PlayerState
     {
         Prepare,
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         playerState = PlayerState.Prepare;
+        inst = this;
     }
 
     private void Update()
@@ -24,5 +26,10 @@ public class GameManager : MonoBehaviour
         {
             startScreen.SetActive(true);
         }
+        else
+        {
+            startScreen.SetActive(false);
+        }
+        
     }
 }

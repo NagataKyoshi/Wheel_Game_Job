@@ -27,6 +27,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Make sure its sync
+        playerState = GameManager.inst.playerState;
+
         GetInput();
 
         Move();
@@ -39,8 +42,8 @@ public class Movement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             isTouching = true;
-            playerState = GameManager.PlayerState.Playing; //Make the game start
-
+            GameManager.inst.playerState = GameManager.PlayerState.Playing;
+           // playerState = GameManager.PlayerState.Playing; //Make the game start
         }
         else
         {
