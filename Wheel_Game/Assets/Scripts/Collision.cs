@@ -5,10 +5,11 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     public int wheelIndex;
+    public int wheelCount;
     public Transform wheelPrefab;
     public ParticleSystem pufSmoke;
-    public int wheelCount;
-
+    public ParticleSystem mudParticle;
+    public GameObject glass;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -88,6 +89,23 @@ public class Collision : MonoBehaviour
 
                 }
             }
+        }
+
+        if (other.gameObject.tag == "Mud")
+        {
+            mudParticle.Play();
+        }
+        if (other.gameObject.tag == "Glass")
+        {
+            gameObject.transform.localScale -= Vector3.one * 5;
+            Instantiate(glass, transform.position, transform.rotation);
+            Destroy(other.gameObject);
+
+            if (gameObject.transform.localScale.x < 10)
+            {
+                Debug.Log("Bitti");
+                GameManager.inst.playerState = GameManager.PlayerState.Finish;
+            }        
         }
     }
 

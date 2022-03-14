@@ -7,6 +7,8 @@ TagManager:
   - Wheel
   - Bricks
   - Obstacle
+  - Mud
+  - Glass
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Wheel
-  - 
+  - Surface
   - 
   - 
   - 

@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
         playerState = GameManager.inst.playerState;
 
         GetInput();
-
+        //GetInputMobile();
         Move();
 
     }
@@ -41,9 +41,27 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            isTouching = true;
-            GameManager.inst.playerState = GameManager.PlayerState.Playing;
-           // playerState = GameManager.PlayerState.Playing; //Make the game start
+            //Check if still is working or not
+            if (GameManager.inst.playerState != GameManager.PlayerState.Finish)
+            {
+                isTouching = true;
+                GameManager.inst.playerState = GameManager.PlayerState.Playing;
+            }          
+        }
+        else
+        {
+            isTouching = false;
+        }
+    }
+    void GetInputMobile()
+    {
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        {
+            if (GameManager.inst.playerState != GameManager.PlayerState.Finish)
+            {
+                isTouching = true;
+                GameManager.inst.playerState = GameManager.PlayerState.Playing;
+            }
         }
         else
         {
@@ -62,6 +80,9 @@ public class Movement : MonoBehaviour
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = cam.transform.localPosition.z;
+
+        //Vector3 touchPos = Input.touches[0].position;
+        //touchPos.z = cam.transform.localPosition.z;
 
         if (isTouching)
         {

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject startScreen;
+    public GameObject finishScreen;
     public static GameManager inst;
     public enum PlayerState
     {
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour
         {
             startScreen.SetActive(false);
         }
+        if (playerState == PlayerState.Finish)
+        {
+            finishScreen.SetActive(true);
+        }
         
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("GameLevel");
     }
 }
